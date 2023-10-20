@@ -81,7 +81,8 @@
 
     resource "local_file" "kubeconfig" {
       content  = module.eks-kubeconfig.kubeconfig
-      filename = "kubeconfig_${var.AWS_CLUSTER_NAME}"
+    #   filename = "kubeconfig_${var.AWS_CLUSTER_NAME}"
+      filename = "${path.module}/kubeconfig"
     }
 
     resource "aws_iam_policy" "worker_policy" {
